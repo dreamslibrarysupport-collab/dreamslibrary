@@ -1,7 +1,13 @@
 import pg from 'pg';
+import { readFileSync } from 'node:fs';
 export const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.DATABASE_SSL === 'false' ? false : { rejectUnauthorized: true },
+  ssl: process.env.DATABASE_SSL === 'false' ? false : {
+    rejectUnauthorized: true,
+    ...(process.env.DATABASE_SSL_CA_FILE
+      ? { ca: readFileSync(process.env.DATABASE_SSL_CA_FILE, 'utf8') }
+      : {}),
+  },
   max: 10,
   connectionTimeoutMillis: 10000,
   idleTimeoutMillis: 30000,
