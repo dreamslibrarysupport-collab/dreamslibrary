@@ -1,8 +1,8 @@
 begin;
-alter table public.reviews add column updated_at timestamptz not null default now();
+alter table public.reviews add column if not exists updated_at timestamptz not null default now();
 alter table public.reviews alter column review set default '';
 -- Backend-only view: never expose buyer identities via the public Data API.
-create view public.verified_book_owners as
+create or replace view public.verified_book_owners as
 select l.user_id,l.ebook_id,l.order_id from public.user_library l
 join public.orders o on o.id=l.order_id and o.user_id=l.user_id
 join public.payments p on p.order_id=o.id and p.user_id=l.user_id
