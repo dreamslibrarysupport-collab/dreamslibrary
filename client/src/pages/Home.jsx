@@ -60,7 +60,7 @@ export default function Home() {
     }
   }
   return (
-    <>
+    <div className="home-page">
       <SEO title="Knowledge That Stays With You" />
       <section className="hero library-hero">
         <img className="library-backdrop" src="/images/library-shelves.png" alt="" fetchPriority="high" />
@@ -201,57 +201,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="container section why-section">
-        <div>
-          <div className="eyebrow">LESS SCROLLING. MORE DISCOVERING.</div>
-          <h2>
-            Good ideas deserve
-            <br />a place in your life.
-          </h2>
-          <p>
-            We believe learning should feel like opening a door.
-            <br />
-            Choose a book, find a quiet moment, and see where it takes you.
-          </p>
-        </div>
-        <div className="benefits">
-          {[
-            [
-              BookOpen,
-              'Made for real life',
-              'Thoughtful reads that turn interesting ideas into something useful.',
-            ],
-            [
-              Zap,
-              'Your library, in a moment',
-              'Your books appear in your library once payment is confirmed.',
-            ],
-            [
-              ShieldCheck,
-              'A simple, secure experience',
-              'Protected checkout and personal access to the books you buy.',
-            ],
-          ].map(([Icon, title, text]) => (
-            <div key={title}>
-              <Icon />
-              <div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      <section className="review-band">
-        <div className="container">
-          <span className="eyebrow">A SPACE FOR YOUR STORY</span>
-          <h2>What will your next chapter look like?</h2>
-          <p>Reader stories are coming soon. We’d love yours to be one of them.</p>
-          <Link className="text-link" to="/contact">
-            Share your reading story <ArrowUpRight size={16} />
-          </Link>
-        </div>
-      </section>
       <section className="container section faq-section">
         <div>
           <div className="eyebrow">A FEW THINGS TO KNOW</div>
@@ -316,6 +265,6 @@ export default function Home() {
           <small>Only the good stuff. Unsubscribe anytime.</small>
         </form>
       </section>
-    </>
+    </div>
   );
 }

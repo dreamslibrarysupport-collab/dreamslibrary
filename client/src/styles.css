@@ -2461,3 +2461,53 @@ td:last-child {
   .inside-signoff { font-size: .6rem; }
   .library-hero .hero-caption { display: block; bottom: -4px; }
 }
+
+/* Compact homepage on phones, retaining comfortable touch targets. */
+@media (max-width: 680px) {
+  .home-page .container { width: calc(100% - 28px); }
+  .home-page .section { padding-top: 28px; padding-bottom: 28px; }
+  .home-page .library-hero .hero-grid { min-height: 0; padding-top: 26px; padding-bottom: 16px; gap: 8px; }
+  .home-page .library-hero h1 { font-size: clamp(2.15rem, 8.4vw, 3rem); line-height: 1.05; margin: 14px 0; }
+  .home-page .hero .eyebrow { font-size: .55rem; letter-spacing: .13em; }
+  .home-page .library-hero .hero-copy > p { font-size: .8rem; line-height: 1.6; margin-bottom: 18px; }
+  .home-page .hero-buttons { gap: 12px; margin-top: 18px; }
+  .home-page .hero-buttons .button { padding: 11px 16px; min-height: 44px; font-size: .75rem; }
+  .home-page .hero-buttons .text-link { font-size: .7rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .home-page .hero-footnote { font-size: .6rem; margin-top: 16px; gap: 7px; }
+  .home-page .library-hero .hero-art { height: 292px; max-width: 310px; margin-top: 8px; }
+  .home-page .hero-book { width: 150px; left: -10px; }
+  .home-page .hero-book .book-cover { height: 225px; }
+  .home-page .hero-book .cover-title { font-size: 1.65rem; }
+  .home-page .hero-orbit { width: 220px; height: 220px; top: 24px; left: 35px; }
+  .home-page .editor-note { width: 140px; padding: 12px; top: 154px; right: 0; }
+  .home-page .editor-note strong { font-size: .95rem; }
+  .home-page .editor-note a { font-size: .55rem; margin-top: 8px; min-height: 32px; }
+  .home-page .hero-caption { font-size: .6rem; min-height: 44px; bottom: -9px; }
+  .home-page .hero-book-inside { padding: 12px 10px; }
+  .home-page .hero-book-inside > strong { font-size: 1.2rem; }
+  .home-page .hero-book-inside p { font-size: .57rem; }
+  .home-page .trust-strip > .container { gap: 10px; padding-top: 14px; padding-bottom: 14px; }
+  .home-page .trust-strip span { font-size: .65rem; gap: 6px; }
+  .home-page .trust-strip svg { width: 15px; }
+  .home-page .section-heading { gap: 12px; margin-bottom: 18px; }
+  .home-page .section-heading h2, .home-page .faq-section h2, .home-page .newsletter h2 { font-size: 1.6rem; }
+  .home-page .eyebrow { font-size: .53rem; }
+  .home-page .tabs { margin-bottom: 18px; gap: 14px; }
+  .home-page .tabs button { font-size: .73rem; min-height: 44px; }
+  .home-page .book-grid { gap: 20px 12px; }
+  .home-page .cover-wrap { padding: 12px 16px; aspect-ratio: .96; }
+  .home-page .book-title { font-size: .95rem; }
+  .home-page .book-author { font-size: .65rem; }
+  .home-page .book-bottom .icon-button { min-width: 40px; min-height: 40px; }
+  .home-page .topic-grid { gap: 10px; }
+  .home-page .topic { padding: 15px 12px; }
+  .home-page .topic h3 { font-size: .8rem; }
+  .home-page .topic p { font-size: .65rem; line-height: 1.5; }
+  .home-page .topic > svg { width: 20px; }
+  .home-page .topic-arrow { right: 10px; top: 18px; }
+  .home-page .faq-section { gap: 20px; }
+  .home-page .faq-list summary { font-size: .8rem; padding-top: 14px; padding-bottom: 14px; }
+  .home-page .faq-list p { font-size: .76rem; }
+  .home-page .newsletter { padding: 24px 16px; gap: 18px; margin-top: 12px; margin-bottom: 28px; }
+  .home-page .newsletter p { font-size: .78rem; }
+}
