@@ -20,9 +20,7 @@ export function validateEnvironment() {
       'SUPABASE_URL',
       'SUPABASE_ANON_KEY',
       'SUPABASE_SERVICE_ROLE_KEY',
-      'RAZORPAY_KEY_ID',
-      'RAZORPAY_KEY_SECRET',
-      'RAZORPAY_WEBHOOK_SECRET',
+      ...(env.production ? ['RAZORPAY_KEY_ID', 'RAZORPAY_KEY_SECRET', 'RAZORPAY_WEBHOOK_SECRET'] : []),
     ]) {
       if (!process.env[key]) throw new Error(`Missing ${key}; see .env.example`);
     }

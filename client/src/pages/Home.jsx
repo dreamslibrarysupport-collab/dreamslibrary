@@ -34,6 +34,7 @@ export default function Home() {
     event.currentTarget.style.setProperty('--book-tilt-y', '0deg');
   }
   const books = useApi('/ebooks'),
+    [bookOpen, setBookOpen] = useState(false),
     [tab, setTab] = useState('Featured'),
     [email, setEmail] = useState(''),
     [sending, setSending] = useState(false);
@@ -61,21 +62,22 @@ export default function Home() {
   return (
     <>
       <SEO title="Knowledge That Stays With You" />
-      <section className="hero">
+      <section className="hero library-hero">
+        <img className="library-backdrop" src="/images/library-shelves.png" alt="" fetchPriority="high" />
+        <div className="library-light" aria-hidden="true" />
         <div className="container hero-grid">
           <div className="hero-copy">
             <div className="eyebrow">
-              <span /> A BOOK IS JUST THE BEGINNING
+              <span /> WELCOME TO DREAM’S LIBRARY
             </div>
             <h1>
-              Knowledge that
+              Every shelf,
               <br />
-              stays <em>with you.</em>
+              a new <em>possibility.</em>
             </h1>
             <p>
-              Discover premium eBooks and start learning today.
-              <br className="desktop" /> Big ideas for your work, your life, and everything in
-              between.
+              Step into a world of stories, ideas, and discovery.
+              <br className="desktop" /> Find your next favourite read and make a little room for wonder.
             </p>
             <div className="hero-buttons">
               <Link className="button primary" to="/ebooks">
@@ -94,9 +96,20 @@ export default function Home() {
             {hero && (
               <>
                 <div className="hero-orbit" />
-                <div className="hero-book">
+                <div className={`hero-book ${bookOpen ? 'is-open' : ''}`}>
                   <div className="hero-book-solid">
-                    <Cover book={hero} large />
+                    <div className="hero-book-inside" id="hero-library-story" aria-hidden={!bookOpen}>
+                      <span className="inside-kicker">WELCOME TO</span>
+                      <strong>Dream’s<br />Library</strong>
+                      <span className="inside-rule" />
+                      <p>Your little corner of discovery. Explore eBooks about technology, creativity, business, and personal growth.</p>
+                      <p>Find your next idea. Build your own library. Keep your curiosity alive.</p>
+                      <span className="inside-signoff">A new chapter starts here.</span>
+                    </div>
+                    <button className="hero-book-front" type="button" onClick={() => setBookOpen(!bookOpen)} aria-expanded={bookOpen} aria-controls="hero-library-story" aria-label={bookOpen ? 'Close the book about Dream’s Library' : 'Open the book to discover Dream’s Library'}>
+                      <Cover book={hero} large />
+                      <span className="hero-cover-lining" aria-hidden="true" />
+                    </button>
                     <span className="hero-book-pages" aria-hidden="true" />
                     <span className="hero-book-back" aria-hidden="true" />
                   </div>
@@ -111,7 +124,7 @@ export default function Home() {
                     Meet your next read <ArrowUpRight size={16} />
                   </Link>
                 </div>
-                <span className="hero-caption">A new perspective, one page at a time.</span>
+                <button className="hero-caption book-toggle" type="button" onClick={() => setBookOpen(!bookOpen)} aria-expanded={bookOpen} aria-controls="hero-library-story">{bookOpen ? 'Close this chapter ↗' : 'Tap the book. Discover our story ↗'}</button>
               </>
             )}
           </div>

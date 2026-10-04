@@ -13,6 +13,8 @@ export async function validateCart(req, res) {
   res.json({ data: await quote({ query }, req.user.id, input.ebookIds, input.coupon) });
 }
 export async function newOrder(req, res) {
+  if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET || !process.env.RAZORPAY_WEBHOOK_SECRET)
+    throw new HttpError(503, 'Payments are not configured yet. Please try again later.');
   const input = cartSchema.parse(req.body);
   res.status(201).json({
     data: {
