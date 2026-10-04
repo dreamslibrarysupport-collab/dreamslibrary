@@ -9,7 +9,7 @@ const content = {
   '/contact': [
     'Let’s talk books.',
     'Need help with an order, accessing your library, or choosing your next read? Email our store team and include your order number if you have one. Never send your password or payment credentials.',
-    'Contact Dream\'s Library at dreamslibrarysupport@gmail.com for help with your books and orders.',
+    'Contact Dream\'s Library at dreamslibrary01@gmail.com for help with your books and orders.',
   ],
   '/privacy': [
     'Privacy Policy',
@@ -40,7 +40,7 @@ export default function Information() {
       <div className="eyebrow">DREAM&#39;S LIBRARY / A LITTLE MORE TO KNOW</div>
       <h1 className="page-title">{title}</h1>
       {pathname === '/contact' && (
-        <a className="text-link" href="mailto:dreamslibrarysupport@gmail.com">
+        <a className="text-link" href="mailto:dreamslibrary01@gmail.com">
           Email Dream’s Library support
         </a>
       )}
